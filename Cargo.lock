@@ -3506,13 +3506,13 @@ dependencies = [
 ]
 
 [[package]]
-name = "node-template"
+name = "node-tiny"
 version = "2.0.0"
 dependencies = [
  "frame-benchmarking 2.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "frame-benchmarking-cli",
  "jsonrpc-core",
- "node-template-runtime",
+ "node-tiny-runtime",
  "pallet-transaction-payment-rpc",
  "sc-basic-authorship",
  "sc-cli",
@@ -3541,7 +3541,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "node-template-runtime"
+name = "node-tiny-runtime"
 version = "2.0.0"
 dependencies = [
  "escrow-gateway",
