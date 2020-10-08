@@ -53,6 +53,9 @@ sp-session = { default-features = false, version = '2.0.0' }
 sp-std = { default-features = false, version = '2.0.0' }
 sp-transaction-pool = { default-features = false, version = '2.0.0' }
 sp-version = { default-features = false, version = '2.0.0' }
+contracts= { default-features = false, package = 'pallet-contracts', version = '2.0.0', git = 'https://github.com/MaciejBaj/pallet-contracts.git', branch = 'escrow-contracts'}
+escrow-gateway = { default-features = false, version = '2.0.0', git = 'https://github.com/t3rn/gateway-pallet.git', branch = 'master' }
+escrow-gateway-balances = { default-features = false, version = '2.0.0', git = 'https://github.com/t3rn/gateway-pallet.git', branch = 'master' }
 
 [features]
 default = ['std']
@@ -64,6 +67,7 @@ runtime-benchmarks = [
     'frame-system/runtime-benchmarks',
     'pallet-balances/runtime-benchmarks',
     'pallet-timestamp/runtime-benchmarks',
+    'pallet-timestamp/runtime-benchmarks',
     'sp-runtime/runtime-benchmarks',
 ]
 std = [
@@ -73,6 +77,9 @@ std = [
     'frame-support/std',
     'frame-system/std',
     'frame-system-rpc-runtime-api/std',
+    'contracts/std',
+    'escrow-gateway/std',
+    'escrow-gateway-balances/std',
     'pallet-aura/std',
     'pallet-balances/std',
     'pallet-grandpa/std',
