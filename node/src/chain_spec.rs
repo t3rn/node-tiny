@@ -2,6 +2,7 @@ use node_tiny_runtime::{
     AccountId, AuraConfig, BalancesConfig, GenesisConfig, GrandpaConfig, Signature, SudoConfig,
     SystemConfig, WASM_BINARY,
 };
+use node_tiny_runtime::{ContractsConfig, ContractsSchedule};
 use sc_service::ChainType;
 use sp_consensus_aura::sr25519::AuthorityId as AuraId;
 use sp_core::{sr25519, Pair, Public};
@@ -131,9 +132,15 @@ fn testnet_genesis(
     initial_authorities: Vec<(AuraId, GrandpaId)>,
     root_key: AccountId,
     endowed_accounts: Vec<AccountId>,
-    _enable_println: bool,
+    enable_println: bool,
 ) -> GenesisConfig {
     GenesisConfig {
+        contracts: Some(ContractsConfig {
+            current_schedule: ContractsSchedule {
+                enable_println,
+                ..Default::default()
+            },
+        }),
         frame_system: Some(SystemConfig {
             // Add Wasm runtime to storage.
             code: wasm_binary.to_vec(),
